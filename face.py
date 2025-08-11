@@ -21,7 +21,7 @@ class CubeFace:
     }
     _PALETTE = list(_COLOR_MAP.keys())
 
-    def __init__(self, image_path):
+    def __init__(self, matrix):
         """
         Initializes a CubeFace by loading an image and generating its color matrix.
 
@@ -30,13 +30,10 @@ class CubeFace:
         
         Raises:
             FileNotFoundError: If the image file cannot be found.
-        """
-        if not os.path.exists(image_path):
-            raise FileNotFoundError(f"Error: The image file at '{image_path}' was not found.")
-        
-        self.image_path = image_path
-        self.matrix = self._generate_matrix_from_image()
 
+        # self.image_path = image_path
+x        """
+        self.matrix = matrix
     def _find_closest_color(self, rgb_color):
         """Finds the closest color in the predefined palette using Euclidean distance."""
         distances = [
@@ -75,7 +72,7 @@ class CubeFace:
     @property
     def center(self):
         """Returns the color code of the center piece."""
-        return self.matrix[1, 1]
+        return self.matrix[1]
 
     @property
     def edges(self):

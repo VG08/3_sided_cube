@@ -45,7 +45,7 @@ def image_to_color_array(image_path):
     for i in range(height):
         for j in range(width):
             result[i, j] = nearest_color(pixels[i, j])
-    
+    print_colored_array(array=result)
     return result
 
 def print_colored_array(array):
